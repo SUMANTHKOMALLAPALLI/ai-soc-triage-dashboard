@@ -126,7 +126,7 @@ increasing = [
 
 if increasing:
     st.warning(
-        "The model identified increasing activity for: "
+       "Trend analysis identified increasing activity for: "
         + ", ".join(increasing)
     )
 else:
