@@ -330,14 +330,14 @@ for app in df["application"].unique():
         app_data["risk_score"].tail(7).mean()
     )
 
-    difference = predicted_risk - current_risk
+            difference = predicted_risk - current_risk
 
-   if difference >= 3:
-    trend = "Increasing"
-elif difference <= -3:
-    trend = "Decreasing"
-else:
-    trend = "Stable"
+        if difference >= 3:
+            trend = "Increasing"
+        elif difference <= -3:
+            trend = "Decreasing"
+        else:
+            trend = "Stable"
 
     recent_app = app_data.tail(7)
 
