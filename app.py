@@ -584,6 +584,66 @@ if uploaded_alert is not None:
         st.info(
             f"Current analyst decision: {analyst_decision}"
         )
+                # ----------------------------------------------------
+        # AI-Assisted SOC Analysis
+        # ----------------------------------------------------
+
+        st.subheader("🤖 AI-Assisted SOC Analysis")
+
+        if st.button("Analyze Alert with AI", key="ai_analyze_button"):
+
+            try:
+                client = OpenAI(
+                    api_key=st.secrets["OPENAI_API_KEY"]
+                )
+
+                ai_prompt = f"""
+You are assisting a SOC analyst.
+
+Analyze this security alert carefully.
+
+Alert Name: {alert_name}
+Severity: {severity}
+Host: {host}
+User: {user}
+Source IP: {source_ip}
+Destination IP: {destination_ip}
+Process: {process}
+Command Line: {command_line}
+
+Rule-Based Risk Score: {risk_score}/100
+Triage Priority: {risk_level}
+
+Suspicious Indicators:
+{", ".join(indicators)}
+
+Provide the following:
+
+1. Alert Summary
+2. Why This Activity Is Suspicious
+3. Important Evidence
+4. Recommended Investigation Steps
+5. Suggested Disposition: Benign, Suspicious, or Escalate
+6. Missing Evidence or Limitations
+
+Do not claim that the host is compromised unless the available evidence proves it.
+
+Keep the answer short, clear, and professional for a SOC analyst.
+"""
+
+                with st.spinner("AI is analyzing the alert..."):
+
+                    response = client.responses.create(
+                        model="gpt-6-luna",
+                        input=ai_prompt
+                    )
+
+                st.success("AI analysis completed.")
+
+                st.markdown(response.output_text)
+
+            except Exception as e:
+                st.error(f"AI analysis failed: {e}")
 
         with st.expander("View Raw Alert"):
             st.json(alert)
