@@ -488,6 +488,101 @@ if uploaded_alert is not None:
         st.write("**Timestamp:**", timestamp)
         st.write("**Process:**", process)
         st.write("**Command Line:**", command_line)
+                # ----------------------------------------------------
+        # Automatic SOC Triage
+        # ----------------------------------------------------
+
+        st.subheader("Automated SOC Triage")
+
+        risk_score = 0
+        indicators = []
+
+        severity_lower = str(severity).lower()
+        process_lower = str(process).lower()
+        command_lower = str(command_line).lower()
+
+        # Severity scoring
+        if severity_lower == "critical":
+            risk_score += 50
+            indicators.append("Critical severity alert")
+
+        elif severity_lower == "high":
+            risk_score += 40
+            indicators.append("High severity alert")
+
+        elif severity_lower == "medium":
+            risk_score += 20
+
+        elif severity_lower == "low":
+            risk_score += 10
+
+        # Process checks
+        if "powershell" in process_lower:
+            risk_score += 15
+            indicators.append("PowerShell execution detected")
+
+        # Command-line checks
+        if "executionpolicy bypass" in command_lower:
+            risk_score += 15
+            indicators.append("PowerShell ExecutionPolicy Bypass detected")
+
+        if "encodedcommand" in command_lower:
+            risk_score += 20
+            indicators.append("Encoded PowerShell command detected")
+
+        risk_score = min(risk_score, 100)
+
+        # Risk classification
+        if risk_score >= 80:
+            risk_level = "Critical"
+        elif risk_score >= 60:
+            risk_level = "High"
+        elif risk_score >= 30:
+            risk_level = "Medium"
+        else:
+            risk_level = "Low"
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.metric("Calculated Risk Score", f"{risk_score}/100")
+
+        with col2:
+            st.metric("Triage Priority", risk_level)
+
+        st.write("### Suspicious Indicators")
+
+        if indicators:
+            for indicator in indicators:
+                st.write(f"• {indicator}")
+        else:
+            st.write("No major suspicious indicators identified.")
+
+        st.write("### Recommended Investigation Steps")
+
+        investigation_steps = [
+            "Review the full PowerShell command line.",
+            "Check the parent and child processes.",
+            "Validate whether the user expected this activity.",
+            "Review recent logins for the user account.",
+            "Check the destination IP or domain reputation.",
+            "Review related EDR and SIEM alerts on the host."
+        ]
+
+        for number, step in enumerate(investigation_steps, 1):
+            st.write(f"{number}. {step}")
+
+        st.write("### Analyst Decision")
+
+        analyst_decision = st.radio(
+            "Choose the analyst decision:",
+            ["Pending Review", "Benign", "Suspicious", "Escalate"],
+            key="analyst_decision"
+        )
+
+        st.info(
+            f"Current analyst decision: {analyst_decision}"
+        )
 
         with st.expander("View Raw Alert"):
             st.json(alert)
