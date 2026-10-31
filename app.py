@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import json
 
 st.set_page_config(
     page_title="SOC Intelligence Dashboard",
@@ -432,3 +433,64 @@ st.info(
     "Application risk prediction uses the recent 30-day security trend "
     "to estimate the expected risk level for the next 7 days."
 )
+# ============================================================
+# Prototype 3 - SOC Alert Upload and Parsing
+# ============================================================
+
+st.divider()
+st.header("🔎 AI-Assisted SOC Alert Triage")
+
+st.caption(
+    "Upload a security alert in JSON format. "
+    "The dashboard will automatically extract important investigation details."
+)
+
+uploaded_alert = st.file_uploader(
+    "Upload Security Alert",
+    type=["json"],
+    key="soc_alert_upload"
+)
+
+if uploaded_alert is not None:
+    try:
+        alert = json.load(uploaded_alert)
+
+        st.success("Alert uploaded successfully.")
+
+        st.subheader("Alert Overview")
+
+        alert_name = alert.get("alert_name", "Unknown")
+        severity = alert.get("severity", "Unknown")
+        timestamp = alert.get("timestamp", "Unknown")
+        host = alert.get("host", "Unknown")
+        user = alert.get("user", "Unknown")
+        source_ip = alert.get("source_ip", "Unknown")
+        destination_ip = alert.get("destination_ip", "Unknown")
+        process = alert.get("process", "Unknown")
+        command_line = alert.get("command_line", "Unknown")
+
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            st.metric("Alert", alert_name)
+            st.metric("Severity", severity)
+
+        with col2:
+            st.metric("Host", host)
+            st.metric("User", user)
+
+        with col3:
+            st.metric("Source IP", source_ip)
+            st.metric("Destination IP", destination_ip)
+
+        st.subheader("Investigation Evidence")
+
+        st.write("**Timestamp:**", timestamp)
+        st.write("**Process:**", process)
+        st.write("**Command Line:**", command_line)
+
+        with st.expander("View Raw Alert"):
+            st.json(alert)
+
+    except Exception as e:
+        st.error(f"Unable to read alert: {e}")
