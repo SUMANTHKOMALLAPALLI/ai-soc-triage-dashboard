@@ -12,16 +12,40 @@ st.set_page_config(
 
 st.title("🛡️ AI-Assisted SOC Intelligence Dashboard")
 st.markdown("""
-<div style="font-size:18px; margin-bottom:25px;">
-    <a href="#dashboard">🏠 Dashboard</a>
-    &nbsp;&nbsp; | &nbsp;&nbsp;
-    <a href="#alert-triage">🔎 Alert Triage</a>
-    &nbsp;&nbsp; | &nbsp;&nbsp;
-    <a href="#about-us">ℹ️ About Us</a>
-    &nbsp;&nbsp; | &nbsp;&nbsp;
-    <a href="#contact-us">📩 Contact Us</a>
+<style>
+.nav-container {
+    display: flex;
+    gap: 12px;
+    margin: 10px 0 28px 0;
+    flex-wrap: wrap;
+}
+
+.nav-button {
+    text-decoration: none !important;
+    padding: 10px 18px;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    font-weight: 600;
+    display: inline-block;
+    background: #ffffff;
+    color: #202124 !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.nav-button:hover {
+    border-color: #8aa7c7;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+</style>
+
+<div class="nav-container">
+    <a class="nav-button" href="#dashboard">🏠 Dashboard</a>
+    <a class="nav-button" href="#alert-triage">🔎 Alert Triage</a>
+    <a class="nav-button" href="#about-us">ℹ️ About Us</a>
+    <a class="nav-button" href="#contact-us">📩 Contact Us</a>
 </div>
 """, unsafe_allow_html=True)
+
 st.markdown('<div id="dashboard"></div>', unsafe_allow_html=True)
 
 st.caption(
