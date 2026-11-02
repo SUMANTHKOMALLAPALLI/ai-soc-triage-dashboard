@@ -11,6 +11,18 @@ st.set_page_config(
 )
 
 st.title("🛡️ AI-Assisted SOC Intelligence Dashboard")
+st.markdown("""
+<div style="font-size:18px; margin-bottom:25px;">
+    <a href="#dashboard">🏠 Dashboard</a>
+    &nbsp;&nbsp; | &nbsp;&nbsp;
+    <a href="#alert-triage">🔎 Alert Triage</a>
+    &nbsp;&nbsp; | &nbsp;&nbsp;
+    <a href="#about-us">ℹ️ About Us</a>
+    &nbsp;&nbsp; | &nbsp;&nbsp;
+    <a href="#contact-us">📩 Contact Us</a>
+</div>
+""", unsafe_allow_html=True)
+st.markdown('<div id="dashboard"></div>', unsafe_allow_html=True)
 
 st.caption(
     "Prototype 2 | Synthetic security data | Predictive security intelligence"
@@ -439,6 +451,7 @@ st.info(
 # ============================================================
 
 st.divider()
+st.markdown('<div id="alert-triage"></div>', unsafe_allow_html=True)
 st.header("🔎 AI-Assisted SOC Alert Triage")
 
 st.caption(
@@ -657,18 +670,15 @@ Keep the answer short, clear, and professional for a SOC analyst.
 
 st.divider()
 
-about_tab, contact_tab = st.tabs(["ℹ️ About Us", "📩 Contact Us"])
+st.markdown('<div id="about-us"></div>', unsafe_allow_html=True)
+st.header("ℹ️ About Us")
+st.write("""
+The AI-Assisted SOC Intelligence Dashboard is a cybersecurity
+capstone project developed by Sumanth Komallapalli.
 
-with about_tab:
-    st.header("About Us")
-
-    st.write("""
-    The AI-Assisted SOC Intelligence Dashboard is a cybersecurity
-    capstone project developed by Sumanth Komallapalli.
-
-    The goal of this project is to help SOC analysts quickly identify
-    important security activity, understand risk, and prioritize
-    investigations.
+The goal of this project is to help SOC analysts quickly identify
+important security activity, understand risk, and prioritize
+investigations.
 
     The dashboard currently provides:
 
@@ -695,8 +705,11 @@ with about_tab:
     )
 
 
-with contact_tab:
-    st.header("Contact Us")
+st.divider()
+
+st.markdown('<div id="contact-us"></div>', unsafe_allow_html=True)
+
+st.header("📩 Contact Us")
 
     st.write("""
     Thank you for your interest in the AI-Assisted SOC Intelligence Dashboard.
