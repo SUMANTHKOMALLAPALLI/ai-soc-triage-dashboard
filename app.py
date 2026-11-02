@@ -680,43 +680,40 @@ The goal of this project is to help SOC analysts quickly identify
 important security activity, understand risk, and prioritize
 investigations.
 
-    The dashboard currently provides:
+The dashboard currently provides:
 
-    • Security incident forecasting  
-    • Traffic anomaly detection  
-    • At-risk application prediction  
-    • Security alert upload and parsing  
-    • Automated SOC risk scoring  
-    • AI-assisted alert analysis  
-    • Recommended investigation steps  
-    • Analyst decision support
+• Security incident forecasting  
+• Traffic anomaly detection  
+• At-risk application prediction  
+• Security alert upload and parsing  
+• Automated SOC risk scoring  
+• AI-assisted alert analysis  
+• Recommended investigation steps  
+• Analyst decision support
 
-    The current project uses synthetic security data for demonstration
-    and testing. The long-term goal is to integrate the dashboard with
-    real SIEM, EDR, threat intelligence, and cloud-security platforms.
+The current project uses synthetic security data for demonstration
+and testing. The long-term goal is to integrate the dashboard with
+real SIEM, EDR, threat intelligence, and cloud-security platforms.
 
-    The system is designed to assist security analysts, not replace them.
-    The analyst remains responsible for the final security decision.
-    """)
+The system is designed to assist security analysts, not replace them.
+The analyst remains responsible for the final security decision.
+""")
 
-    st.info(
-        "Capstone Project | MS Information Technology | "
-        "AI-Assisted SOC Intelligence Dashboard"
-    )
-
+st.info(
+    "Capstone Project | MS Information Technology | "
+    "AI-Assisted SOC Intelligence Dashboard"
+)
 
 st.divider()
-
 st.markdown('<div id="contact-us"></div>', unsafe_allow_html=True)
 
 st.header("📩 Contact Us")
 
-    st.write("""
-    Thank you for your interest in the AI-Assisted SOC Intelligence Dashboard.
-
-    For questions, feedback, collaboration, or information about this project,
-    please contact the project developer.
-    """)
+st.write("""
+Thank you for your interest in the AI-Assisted SOC Intelligence Dashboard.
+For questions, feedback, collaboration, or information about this project,
+please contact the project developer.
+""")
 
     st.write("**Developer:** Sumanth Komallapalli")
     st.write("**Project:** AI-Assisted SOC Intelligence Dashboard")
