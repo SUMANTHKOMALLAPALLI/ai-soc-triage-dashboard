@@ -650,3 +650,68 @@ Keep the answer short, clear, and professional for a SOC analyst.
 
     except Exception as e:
         st.error(f"Unable to read alert: {e}")
+
+# ============================================================
+# About Us and Contact Us
+# ============================================================
+
+st.divider()
+
+about_tab, contact_tab = st.tabs(["ℹ️ About Us", "📩 Contact Us"])
+
+with about_tab:
+    st.header("About Us")
+
+    st.write("""
+    The AI-Assisted SOC Intelligence Dashboard is a cybersecurity
+    capstone project developed by Sumanth Komallapalli.
+
+    The goal of this project is to help SOC analysts quickly identify
+    important security activity, understand risk, and prioritize
+    investigations.
+
+    The dashboard currently provides:
+
+    • Security incident forecasting  
+    • Traffic anomaly detection  
+    • At-risk application prediction  
+    • Security alert upload and parsing  
+    • Automated SOC risk scoring  
+    • AI-assisted alert analysis  
+    • Recommended investigation steps  
+    • Analyst decision support
+
+    The current project uses synthetic security data for demonstration
+    and testing. The long-term goal is to integrate the dashboard with
+    real SIEM, EDR, threat intelligence, and cloud-security platforms.
+
+    The system is designed to assist security analysts, not replace them.
+    The analyst remains responsible for the final security decision.
+    """)
+
+    st.info(
+        "Capstone Project | MS Information Technology | "
+        "AI-Assisted SOC Intelligence Dashboard"
+    )
+
+
+with contact_tab:
+    st.header("Contact Us")
+
+    st.write("""
+    Thank you for your interest in the AI-Assisted SOC Intelligence Dashboard.
+
+    For questions, feedback, collaboration, or information about this project,
+    please contact the project developer.
+    """)
+
+    st.write("**Developer:** Sumanth Komallapalli")
+    st.write("**Project:** AI-Assisted SOC Intelligence Dashboard")
+    st.write("**Program:** MS Information Technology")
+
+    st.write("**Email:** sumanthpani16@gmail.com")
+
+    st.link_button(
+        "GitHub Repository",
+        "https://github.com/SUMANTHKOMALLAPALLI/ai-soc-triage-dashboard"
+    )
