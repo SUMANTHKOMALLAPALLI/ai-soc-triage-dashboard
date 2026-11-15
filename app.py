@@ -21,9 +21,78 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
+st.markdown("""
+<style>
+
+/* Animated banner background */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Fade-in animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulse animation */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34,197,94,0.35);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(34,197,94,0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(34,197,94,0);
+    }
+}
+
+/* Make navigation buttons animate in */
+.nav-button {
+    animation: fadeUp 0.7s ease-out;
+}
+
+/* Animate Streamlit metric cards */
+[data-testid="stMetric"] {
+    animation: fadeUp 0.8s ease-out;
+}
+
+/* Smooth hover effect */
+[data-testid="stMetric"]:hover {
+    transform: translateY(-4px);
+    transition: 0.25s ease;
+}
+
+/* System status boxes */
+div[data-testid="stAlert"] {
+    animation: fadeUp 0.8s ease-out;
+}
+
+/* Smooth page content */
+.block-container {
+    animation: fadeUp 0.6s ease-out;
+}
+
+</style>
+""", unsafe_allow_html=True)
 
 st.markdown("""
-<div style="background:linear-gradient(110deg,#172554,#1d4ed8,#7c3aed);padding:28px 32px;border-radius:18px;margin-bottom:18px;box-shadow:0 10px 30px rgba(37,99,235,0.20);">
+<div style="background:linear-gradient(110deg,#172554,#1d4ed8,#7c3aed,#2563eb);background-size:300% 300%;animation:gradientMove 8s ease infinite;padding:28px 32px;border-radius:18px;margin-bottom:18px;box-shadow:0 10px 30px rgba(37,99,235,0.20);">
 <h1 style="color:white;margin:0;font-size:42px;font-weight:800;">🛡️ AI-Assisted SOC Intelligence Dashboard</h1>
 <p style="color:#e0e7ff;font-size:17px;margin-top:8px;margin-bottom:0;">Predict • Detect • Triage • Investigate • Decide</p>
 </div>
