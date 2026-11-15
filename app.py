@@ -846,7 +846,7 @@ if uploaded_alert is not None or use_demo_alert or use_demo_alert_2 or use_demo_
         else:
             risk_level = "Low"
 
-            col1, col2 = st.columns(2)
+        col1, col2 = st.columns(2)
 
         col1.metric(
             "Calculated Risk Score",
@@ -857,20 +857,16 @@ if uploaded_alert is not None or use_demo_alert or use_demo_alert_2 or use_demo_
             "Triage Priority",
             risk_level
         )
-                if indicators:
-            risk_reasons = " • ".join(indicators)
-        else:
-            risk_reasons = "No major suspicious indicators were identified."
+
+        risk_reasons = " • ".join(indicators) if indicators else "No major suspicious indicators were identified."
 
         st.info(
-            f"ℹ️ **Why this risk score?**  \n"
-            f"{risk_reasons}  \n\n"
+            f"ℹ️ **Why this risk score?**  \n{risk_reasons}  \n\n"
             "This is a rule-based prototype score used to support analyst prioritization. "
             "The analyst still makes the final decision."
         )
-      
-        st.write("### Suspicious Indicators")
 
+        st.write("### Suspicious Indicators")
         if indicators:
             for indicator in indicators:
                 st.write(f"• {indicator}")
