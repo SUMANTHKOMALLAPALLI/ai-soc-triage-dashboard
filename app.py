@@ -955,6 +955,63 @@ Keep the answer short, clear, and professional for a SOC analyst.
                 st.success("AI analysis completed.")
 
                 st.markdown(response.output_text)
+                st.session_state["last_ai_analysis"] = {
+                   "alert_name": alert_name,
+                   "text": response.output_text
+}
+                indicator_text = "\n".join(
+    [f"- {item}" for item in indicators]
+) if indicators else "- No suspicious indicators identified"
+
+report_text = f"""
+AI-ASSISTED SOC ANALYSIS REPORT
+================================
+
+Alert Name: {alert_name}
+Severity: {severity}
+Host: {host}
+User: {user}
+Source IP: {source_ip}
+Destination IP: {destination_ip}
+
+Timestamp: {timestamp}
+Process: {process}
+Command Line: {command_line}
+
+AUTOMATED SOC TRIAGE
+--------------------
+Calculated Risk Score: {risk_score}/100
+Triage Priority: {risk_level}
+
+Suspicious Indicators:
+{indicator_text}
+
+AI-ASSISTED ANALYSIS
+--------------------
+{response.output_text}
+
+Analyst Decision:
+{analyst_decision}
+
+================================
+AI-Assisted SOC Intelligence Dashboard
+Capstone Project
+"""
+
+safe_alert_name = "".join(
+    c if c.isalnum() else "_"
+    for c in alert_name
+)
+
+st.download_button(
+    label="⬇️ Download SOC Analysis Report",
+    data=report_text,
+    file_name=f"{safe_alert_name}_SOC_Analysis.txt",
+    mime="text/plain",
+    key="download_soc_analysis",
+    on_click="ignore"
+)
+                
 
             except Exception as e:
                 st.error(f"AI analysis failed: {e}")
