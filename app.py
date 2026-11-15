@@ -848,7 +848,7 @@ if uploaded_alert is not None or use_demo_alert or use_demo_alert_2 or use_demo_
 
         col1, col2 = st.columns(2)
 
-      with col1:
+     with col1:
     st.metric("Calculated Risk Score", f"{risk_score}/100")
 
     with st.expander("ℹ️ Why this risk score?"):
