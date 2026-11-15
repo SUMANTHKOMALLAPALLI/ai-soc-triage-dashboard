@@ -9,6 +9,18 @@ st.set_page_config(
     page_icon="🛡️",
     layout="wide"
 )
+st.markdown("""
+<style>
+.stApp {
+    background: linear-gradient(
+        135deg,
+        #eef4ff 0%,
+        #f8fbff 50%,
+        #f5f3ff 100%
+    );
+}
+</style>
+""", unsafe_allow_html=True)
 
 st.markdown("""
 <div style="background:linear-gradient(110deg,#172554,#1d4ed8,#7c3aed);padding:28px 32px;border-radius:18px;margin-bottom:18px;box-shadow:0 10px 30px rgba(37,99,235,0.20);">
