@@ -745,9 +745,9 @@ uploaded_alert = st.file_uploader(
 if uploaded_alert is not None or use_demo_alert or use_demo_alert_2 or use_demo_alert_3:
     try:
 
-      if use_demo_alert:
-    alert = demo_alert
-    st.success("PowerShell demo alert loaded successfully.")
+    if use_demo_alert:
+     alert = demo_alert
+     st.success("PowerShell demo alert loaded successfully.")
 
 elif use_demo_alert_2:
     alert = demo_alert_2
