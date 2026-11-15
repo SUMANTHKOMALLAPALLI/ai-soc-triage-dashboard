@@ -51,6 +51,103 @@ st.markdown('<div id="dashboard"></div>', unsafe_allow_html=True)
 st.caption(
     "Prototype 2 | Synthetic security data | Predictive security intelligence"
 )
+st.markdown("""
+<div style="
+    margin-top: 20px;
+    margin-bottom: 28px;
+">
+
+<h2 style="
+    color:#1e3a8a;
+    margin-bottom:16px;
+">
+⚙️ How It Works
+</h2>
+
+<div style="
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+">
+
+<div style="
+    flex:1;
+    min-width:180px;
+    background:white;
+    border-radius:14px;
+    padding:18px;
+    border-top:4px solid #2563eb;
+    box-shadow:0 4px 14px rgba(0,0,0,0.08);
+">
+    <b>1. Security Data</b><br>
+    <span style="color:#64748b;">
+    Historical security data and uploaded alerts
+    </span>
+</div>
+
+<div style="
+    flex:1;
+    min-width:180px;
+    background:white;
+    border-radius:14px;
+    padding:18px;
+    border-top:4px solid #06b6d4;
+    box-shadow:0 4px 14px rgba(0,0,0,0.08);
+">
+    <b>2. Detect</b><br>
+    <span style="color:#64748b;">
+    Identify trends, anomalies, and suspicious indicators
+    </span>
+</div>
+
+<div style="
+    flex:1;
+    min-width:180px;
+    background:white;
+    border-radius:14px;
+    padding:18px;
+    border-top:4px solid #8b5cf6;
+    box-shadow:0 4px 14px rgba(0,0,0,0.08);
+">
+    <b>3. Triage</b><br>
+    <span style="color:#64748b;">
+    Calculate risk score and investigation priority
+    </span>
+</div>
+
+<div style="
+    flex:1;
+    min-width:180px;
+    background:white;
+    border-radius:14px;
+    padding:18px;
+    border-top:4px solid #ec4899;
+    box-shadow:0 4px 14px rgba(0,0,0,0.08);
+">
+    <b>4. AI Analysis</b><br>
+    <span style="color:#64748b;">
+    Generate summary, evidence, and investigation steps
+    </span>
+</div>
+
+<div style="
+    flex:1;
+    min-width:180px;
+    background:white;
+    border-radius:14px;
+    padding:18px;
+    border-top:4px solid #22c55e;
+    box-shadow:0 4px 14px rgba(0,0,0,0.08);
+">
+    <b>5. Analyst Decision</b><br>
+    <span style="color:#64748b;">
+    Benign, Suspicious, or Escalate
+    </span>
+</div>
+
+</div>
+</div>
+""", unsafe_allow_html=True)
 
 # -------------------------------------------------
 # Load historical security data
