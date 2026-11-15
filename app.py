@@ -857,7 +857,7 @@ if uploaded_alert is not None or use_demo_alert or use_demo_alert_2 or use_demo_
             "Triage Priority",
             risk_level
         )
-          if indicators:
+                if indicators:
             risk_reasons = " • ".join(indicators)
         else:
             risk_reasons = "No major suspicious indicators were identified."
@@ -868,7 +868,6 @@ if uploaded_alert is not None or use_demo_alert or use_demo_alert_2 or use_demo_
             "This is a rule-based prototype score used to support analyst prioritization. "
             "The analyst still makes the final decision."
         )
-
       
         st.write("### Suspicious Indicators")
 
