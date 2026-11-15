@@ -692,10 +692,49 @@ demo_alert = {
     "process": "powershell.exe",
     "command_line": "powershell.exe -ExecutionPolicy Bypass -EncodedCommand TESTDATA"
 }
+demo_alert_2 = {
+    "alert_name": "Suspicious Privileged Sign-In",
+    "severity": "High",
+    "timestamp": "2026-11-15T15:10:00",
+    "host": "AZURE-PORTAL",
+    "user": "finance.admin",
+    "source_ip": "198.51.100.45",
+    "destination_ip": "10.10.10.20",
+    "process": "browser",
+    "command_line": "Interactive sign-in from a new location"
+}
 
-use_demo_alert = st.button( "🚀 Use Demo Alert",
-    key="use_demo_alert"
-)
+demo_alert_3 = {
+    "alert_name": "Possible Malware Execution",
+    "severity": "Critical",
+    "timestamp": "2026-11-15T15:25:00",
+    "host": "HR-LAPTOP-22",
+    "user": "hr.user",
+    "source_ip": "10.10.30.25",
+    "destination_ip": "203.0.113.80",
+    "process": "rundll32.exe",
+    "command_line": "rundll32.exe suspicious.dll,Start"
+}
+
+demo_col1, demo_col2, demo_col3 = st.columns(3)
+
+with demo_col1:
+    use_demo_alert = st.button(
+        "⚡ PowerShell Demo",
+        key="demo_powershell"
+    )
+
+with demo_col2:
+    use_demo_alert_2 = st.button(
+        "🔐 Sign-In Demo",
+        key="demo_signin"
+    )
+
+with demo_col3:
+    use_demo_alert_3 = st.button(
+        "🦠 Malware Demo",
+        key="demo_malware"
+    )
 
 uploaded_alert = st.file_uploader(
     "Or upload your own Security Alert",
@@ -703,15 +742,24 @@ uploaded_alert = st.file_uploader(
     key="soc_alert_upload"
 )
 
-if uploaded_alert is not None or use_demo_alert:
+if uploaded_alert is not None or use_demo_alert or use_demo_alert_2 or use_demo_alert_3:
     try:
 
-        if use_demo_alert:
-            alert = demo_alert
-            st.success("Demo alert loaded successfully.")
-        else:
-            alert = json.load(uploaded_alert)
-            st.success("Alert uploaded successfully.")
+      if use_demo_alert:
+    alert = demo_alert
+    st.success("PowerShell demo alert loaded successfully.")
+
+elif use_demo_alert_2:
+    alert = demo_alert_2
+    st.success("Suspicious sign-in demo alert loaded successfully.")
+
+elif use_demo_alert_3:
+    alert = demo_alert_3
+    st.success("Malware demo alert loaded successfully.")
+
+else:
+    alert = json.load(uploaded_alert)
+    st.success("Alert uploaded successfully.")
 
         st.subheader("Alert Overview")
 
