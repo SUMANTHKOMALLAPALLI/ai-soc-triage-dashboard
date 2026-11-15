@@ -135,7 +135,7 @@ st.markdown("""
 st.markdown('<div id="dashboard"></div>', unsafe_allow_html=True)
 
 st.caption(
-    "Prototype 2 | Synthetic security data | Predictive security intelligence"
+    "Final Capstone Prototype | Synthetic Security Data | AI-Assisted SOC Analysis"
 )
 st.markdown("""
 <div style="
