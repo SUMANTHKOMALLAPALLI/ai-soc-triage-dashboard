@@ -10,7 +10,33 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("🛡️ AI-Assisted SOC Intelligence Dashboard")
+st.markdown("""
+<div style="
+    background: linear-gradient(110deg, #172554, #1d4ed8, #7c3aed);
+    padding: 28px 32px;
+    border-radius: 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 10px 30px rgba(37,99,235,0.20);
+">
+    <h1 style="
+        color:white;
+        margin:0;
+        font-size:42px;
+        font-weight:800;
+    ">
+        🛡️ AI-Assisted SOC Intelligence Dashboard
+    </h1>
+
+    <p style="
+        color:#e0e7ff;
+        font-size:17px;
+        margin-top:8px;
+        margin-bottom:0;
+    ">
+        Predict • Detect • Triage • Investigate • Decide
+    </p>
+</div>
+""", unsafe_allow_html=True)
 st.markdown("""
 <style>
 .nav-container {
