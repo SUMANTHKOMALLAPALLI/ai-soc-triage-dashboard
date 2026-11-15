@@ -483,17 +483,37 @@ st.caption(
     "The dashboard will automatically extract important investigation details."
 )
 
+demo_alert = {
+    "alert_name": "Suspicious PowerShell Execution",
+    "severity": "High",
+    "timestamp": "2026-11-15T14:30:00",
+    "host": "FIN-SRV-01",
+    "user": "finance.user",
+    "source_ip": "10.10.20.15",
+    "destination_ip": "203.0.113.66",
+    "process": "powershell.exe",
+    "command_line": "powershell.exe -ExecutionPolicy Bypass -EncodedCommand TESTDATA"
+}
+
+use_demo_alert = st.button( "🚀 Use Demo Alert",
+    key="use_demo_alert"
+)
+
 uploaded_alert = st.file_uploader(
-    "Upload Security Alert",
+    "Or upload your own Security Alert",
     type=["json"],
     key="soc_alert_upload"
 )
 
-if uploaded_alert is not None:
+if uploaded_alert is not None or use_demo_alert:
     try:
-        alert = json.load(uploaded_alert)
 
-        st.success("Alert uploaded successfully.")
+        if use_demo_alert:
+            alert = demo_alert
+            st.success("Demo alert loaded successfully.")
+        else:
+            alert = json.load(uploaded_alert)
+            st.success("Alert uploaded successfully.")
 
         st.subheader("Alert Overview")
 
