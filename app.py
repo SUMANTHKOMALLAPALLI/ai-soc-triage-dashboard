@@ -148,6 +148,21 @@ st.markdown("""
 </div>
 </div>
 """, unsafe_allow_html=True)
+st.markdown("## 🟢 System Status")
+
+status1, status2, status3, status4 = st.columns(4)
+
+with status1:
+    st.success("Dashboard\n\nOperational")
+
+with status2:
+    st.info("AI Analysis\n\nConnected")
+
+with status3:
+    st.warning("Data Source\n\nSynthetic")
+
+with status4:
+    st.info("SIEM Integration\n\nPlanned")
 
 # -------------------------------------------------
 # Load historical security data
