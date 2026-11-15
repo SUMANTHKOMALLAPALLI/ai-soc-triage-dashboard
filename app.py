@@ -820,9 +820,42 @@ Keep the answer short, clear, and professional for a SOC analyst.
     except Exception as e:
         st.error(f"Unable to read alert: {e}")
 
-# ============================================================
 # About Us and Contact Us
-# ============================================================
+# --------------------------------------------
+
+st.divider()
+
+st.markdown("## 🚧 Limitations & Future Work")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.warning("""
+    **Current Limitations**
+
+    - Historical dashboard data is synthetic
+    - Threat intelligence enrichment is not yet connected
+    - Machine-learning anomaly detection is not yet implemented
+    - Live SIEM/EDR API integration is not yet enabled
+    - Current rule-based triage focuses on selected alert indicators
+    """)
+
+with col2:
+    st.info("""
+    **Future Enhancements**
+
+    - Threat intelligence lookups for IPs, domains, and hashes
+    - Machine-learning anomaly detection
+    - Splunk / Microsoft Sentinel integration
+    - CrowdStrike / Defender enrichment
+    - Real-time alert ingestion
+    - Expanded automated investigation workflows
+    """)
+
+st.caption(
+    "The current application is a working capstone prototype. "
+    "These items are planned enhancements for a production-ready version."
+)
 
 st.divider()
 
