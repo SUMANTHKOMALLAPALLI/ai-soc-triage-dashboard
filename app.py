@@ -944,17 +944,17 @@ Do not claim that the host is compromised unless the available evidence proves i
 
 Keep the answer short, clear, and professional for a SOC analyst.
 """
-        with st.spinner("AI is analyzing the alert..."):
-            response = client.responses.create(
+              with st.spinner("AI is analyzing the alert..."):
+                response = client.responses.create(
                 model="gpt-6-luna",
                 input=ai_prompt
             )
 
-        st.success("AI analysis completed.")
+            st.success("AI analysis completed.")
 
-        st.markdown(response.output_text)
+            st.markdown(response.output_text)
 
-        report_text = (
+            report_text = (
             f"AI-ASSISTED SOC ANALYSIS REPORT\n\n"
             f"Alert: {alert_name}\n"
             f"Severity: {severity}\n"
@@ -969,7 +969,7 @@ Keep the answer short, clear, and professional for a SOC analyst.
             f"{response.output_text}\n"
         )
 
-        st.download_button(
+            st.download_button(
             "⬇️ Download SOC Analysis Report",
             data=report_text,
             file_name="SOC_Analysis_Report.txt",
