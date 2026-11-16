@@ -1084,12 +1084,10 @@ st.link_button(
 st.divider()
 
 st.markdown(
-    """
-    <div style="text-align:center; color:#64748b; padding:15px;">
-        AI-Assisted SOC Intelligence Dashboard<br>
-        Capstone Project | MS Information Technology<br>
-        Developed by Sumanth Komallapalli
-    </div>
-    """,
+    '<div style="text-align:center; color:#64748b; padding:15px;">'
+    'AI-Assisted SOC Intelligence Dashboard<br>'
+    'Capstone Project | MS Information Technology<br>'
+    'Developed by Sumanth Komallapalli'
+    '</div>',
     unsafe_allow_html=True
 )
