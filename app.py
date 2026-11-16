@@ -901,7 +901,6 @@ if uploaded_alert is not None or use_demo_alert or use_demo_alert_2 or use_demo_
                 # ----------------------------------------------------
         # AI-Assisted SOC Analysis
         # ----------------------------------------------------
-
         st.subheader("🤖 AI-Assisted SOC Analysis")
 
         if st.button("Analyze Alert with AI", key="ai_analyze_button"):
@@ -935,41 +934,19 @@ if uploaded_alert is not None or use_demo_alert or use_demo_alert_2 or use_demo_
                     "6. Missing Evidence or Limitations\n\n"
                     "Do not claim that the host is compromised unless the available evidence proves it.\n"
                     "Keep the answer short, clear, and professional for a SOC analyst."
-)
+                )
+
                 with st.spinner("AI is analyzing the alert..."):
-                   response = client.responses.create(
-                      model="gpt-6-luna",
+                    response = client.responses.create(
+                        model="gpt-6-luna",
                         input=ai_prompt
-            )
+                    )
 
-            st.success("AI analysis completed.")
+                st.success("AI analysis completed.")
+                st.markdown(response.output_text)
 
-            st.markdown(response.output_text)
-
-            report_text = (
-                f"AI-ASSISTED SOC ANALYSIS REPORT\n\n"
-                f"Alert: {alert_name}\n"
-                f"Severity: {severity}\n"
-                f"Host: {host}\n"
-                f"User: {user}\n"
-                f"Source IP: {source_ip}\n"
-                f"Destination IP: {destination_ip}\n"
-                f"Risk Score: {risk_score}/100\n"
-                f"Triage Priority: {risk_level}\n\n"
-                f"AI ANALYSIS\n"
-                f"-------------------------\n"
-                f"{response.output_text}\n"
-        )
-
-            st.download_button(
-                "⬇️ Download SOC Analysis Report",
-                data=report_text,
-                file_name="SOC_Analysis_Report.txt",
-                mime="text/plain"
-        )
-
-    except Exception as e:
-        st.error(f"AI analysis failed: {e}")
+            except Exception as e:
+                st.error(f"AI analysis failed: {e}")
         with st.expander("View Raw Alert"):
             st.json(alert)
 
