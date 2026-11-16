@@ -1047,6 +1047,7 @@ st.markdown("""
 - Analyst decision support
 """)
 
+st.write("""
 The current project uses synthetic security data for demonstration
 and testing. The long-term goal is to integrate the dashboard with
 real SIEM, EDR, threat intelligence, and cloud-security platforms.
@@ -1054,7 +1055,6 @@ real SIEM, EDR, threat intelligence, and cloud-security platforms.
 The system is designed to assist security analysts, not replace them.
 The analyst remains responsible for the final security decision.
 """)
-
 st.info(
     "Capstone Project | MS Information Technology | "
     "AI-Assisted SOC Intelligence Dashboard"
