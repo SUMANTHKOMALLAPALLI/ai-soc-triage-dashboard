@@ -1032,6 +1032,7 @@ capstone project developed by Sumanth Komallapalli.
 The goal of this project is to help SOC analysts quickly identify
 important security activity, understand risk, and prioritize
 investigations.
+""")
 
 st.markdown("""
 ### Current Capabilities
