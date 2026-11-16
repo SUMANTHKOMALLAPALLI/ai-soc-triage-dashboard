@@ -1065,12 +1065,11 @@ st.markdown('<div id="contact-us"></div>', unsafe_allow_html=True)
 
 st.header("📩 Contact Us")
 
-st.write("""
-Thank you for your interest in the AI-Assisted SOC Intelligence Dashboard.
-
-For questions, feedback, collaboration, or information about this project,
-please contact the project developer.
-""")
+st.write(
+    "Thank you for your interest in the AI-Assisted SOC Intelligence Dashboard.\n\n"
+    "For questions, feedback, collaboration, or information about this project, "
+    "please contact the project developer."
+)
 
 st.write("**Developer:** Sumanth Komallapalli")
 st.write("**Project:** AI-Assisted SOC Intelligence Dashboard")
