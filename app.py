@@ -944,43 +944,40 @@ Do not claim that the host is compromised unless the available evidence proves i
 
 Keep the answer short, clear, and professional for a SOC analyst.
 """
+        with st.spinner("AI is analyzing the alert..."):
+            response = client.responses.create(
+                model="gpt-6-luna",
+                input=ai_prompt
+            )
 
-                with st.spinner("AI is analyzing the alert..."):
+        st.success("AI analysis completed.")
 
-                    response = client.responses.create(
-                        model="gpt-6-luna",
-                        input=ai_prompt
-                    )
+        st.markdown(response.output_text)
 
-             st.success("AI analysis completed.")
+        report_text = (
+            f"AI-ASSISTED SOC ANALYSIS REPORT\n\n"
+            f"Alert: {alert_name}\n"
+            f"Severity: {severity}\n"
+            f"Host: {host}\n"
+            f"User: {user}\n"
+            f"Source IP: {source_ip}\n"
+            f"Destination IP: {destination_ip}\n"
+            f"Risk Score: {risk_score}/100\n"
+            f"Triage Priority: {risk_level}\n\n"
+            f"AI ANALYSIS\n"
+            f"-------------------------\n"
+            f"{response.output_text}\n"
+        )
 
-st.markdown(response.output_text)
+        st.download_button(
+            "⬇️ Download SOC Analysis Report",
+            data=report_text,
+            file_name="SOC_Analysis_Report.txt",
+            mime="text/plain"
+        )
 
-report_text = (
-    f"AI-ASSISTED SOC ANALYSIS REPORT\n\n"
-    f"Alert: {alert_name}\n"
-    f"Severity: {severity}\n"
-    f"Host: {host}\n"
-    f"User: {user}\n"
-    f"Source IP: {source_ip}\n"
-    f"Destination IP: {destination_ip}\n"
-    f"Risk Score: {risk_score}/100\n"
-    f"Triage Priority: {risk_level}\n\n"
-    f"AI ANALYSIS\n"
-    f"-------------------------\n"
-    f"{response.output_text}\n"
-)
-
-st.download_button(
-    "⬇️ Download SOC Analysis Report",
-    data=report_text,
-    file_name="SOC_Analysis_Report.txt",
-    mime="text/plain"
-)
-
-except Exception as e:
-    st.error(f"AI analysis failed: {e}")
-
+    except Exception as e:
+        st.error(f"AI analysis failed: {e}")
         with st.expander("View Raw Alert"):
             st.json(alert)
 
