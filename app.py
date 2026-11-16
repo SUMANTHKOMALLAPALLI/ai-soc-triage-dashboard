@@ -1033,16 +1033,18 @@ The goal of this project is to help SOC analysts quickly identify
 important security activity, understand risk, and prioritize
 investigations.
 
-The dashboard currently provides:
+st.markdown("""
+### Current Capabilities
 
-• Security incident forecasting  
-• Traffic anomaly detection  
-• At-risk application prediction  
-• Security alert upload and parsing  
-• Automated SOC risk scoring  
-• AI-assisted alert analysis  
-• Recommended investigation steps  
-• Analyst decision support
+- Security incident forecasting
+- Traffic anomaly detection
+- At-risk application prediction
+- Security alert upload and parsing
+- Automated SOC risk scoring
+- AI-assisted alert analysis
+- Recommended investigation steps
+- Analyst decision support
+""")
 
 The current project uses synthetic security data for demonstration
 and testing. The long-term goal is to integrate the dashboard with
