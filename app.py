@@ -989,32 +989,32 @@ Keep the answer short, clear, and professional for a SOC analyst.
 
 st.divider()
 
+st.divider()
+
 st.markdown("## 🚧 Limitations & Future Work")
 
 col1, col2 = st.columns(2)
 
 with col1:
-    st.warning("""
-    **Current Limitations**
-
-    - Historical dashboard data is synthetic
-    - Threat intelligence enrichment is not yet connected
-    - Machine-learning anomaly detection is not yet implemented
-    - Live SIEM/EDR API integration is not yet enabled
-    - Current rule-based triage focuses on selected alert indicators
-    """)
+    st.warning(
+        "**Current Limitations**\n\n"
+        "- Historical dashboard data is synthetic\n"
+        "- Threat intelligence enrichment is not yet connected\n"
+        "- Machine-learning anomaly detection is not yet implemented\n"
+        "- Live SIEM/EDR API integration is not yet enabled\n"
+        "- Current rule-based triage focuses on selected alert indicators"
+    )
 
 with col2:
-    st.info("""
-    **Future Enhancements**
-
-    - Threat intelligence lookups for IPs, domains, and hashes
-    - Machine-learning anomaly detection
-    - Splunk / Microsoft Sentinel integration
-    - CrowdStrike / Defender enrichment
-    - Real-time alert ingestion
-    - Expanded automated investigation workflows
-    """)
+    st.info(
+        "**Future Enhancements**\n\n"
+        "- Threat intelligence lookups for IPs, domains, and hashes\n"
+        "- Machine-learning anomaly detection\n"
+        "- Splunk / Microsoft Sentinel integration\n"
+        "- CrowdStrike / Defender enrichment\n"
+        "- Real-time alert ingestion\n"
+        "- Expanded automated investigation workflows"
+    )
 
 st.caption(
     "The current application is a working capstone prototype. "
@@ -1022,7 +1022,6 @@ st.caption(
 )
 
 st.divider()
-
 st.markdown('<div id="about-us"></div>', unsafe_allow_html=True)
 st.header("ℹ️ About Us")
 
