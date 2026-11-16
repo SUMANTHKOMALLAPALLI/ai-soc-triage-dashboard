@@ -1025,36 +1025,40 @@ st.divider()
 
 st.markdown('<div id="about-us"></div>', unsafe_allow_html=True)
 st.header("ℹ️ About Us")
-st.write("""
-The AI-Assisted SOC Intelligence Dashboard is a cybersecurity
-capstone project developed by Sumanth Komallapalli.
 
-The goal of this project is to help SOC analysts quickly identify
-important security activity, understand risk, and prioritize
-investigations.
-""")
+st.write(
+    "The AI-Assisted SOC Intelligence Dashboard is a cybersecurity "
+    "capstone project developed by Sumanth Komallapalli."
+)
 
-st.markdown("""
-### Current Capabilities
+st.write(
+    "The goal of this project is to help SOC analysts quickly identify "
+    "important security activity, understand risk, and prioritize investigations."
+)
 
-- Security incident forecasting
-- Traffic anomaly detection
-- At-risk application prediction
-- Security alert upload and parsing
-- Automated SOC risk scoring
-- AI-assisted alert analysis
-- Recommended investigation steps
-- Analyst decision support
-""")
+st.markdown(
+    "### Current Capabilities\n"
+    "- Security incident forecasting\n"
+    "- Traffic anomaly detection\n"
+    "- At-risk application prediction\n"
+    "- Security alert upload and parsing\n"
+    "- Automated SOC risk scoring\n"
+    "- AI-assisted alert analysis\n"
+    "- Recommended investigation steps\n"
+    "- Analyst decision support"
+)
 
-st.write("""
-The current project uses synthetic security data for demonstration
-and testing. The long-term goal is to integrate the dashboard with
-real SIEM, EDR, threat intelligence, and cloud-security platforms.
+st.write(
+    "The current project uses synthetic security data for demonstration and testing. "
+    "The long-term goal is to integrate the dashboard with real SIEM, EDR, "
+    "threat intelligence, and cloud-security platforms."
+)
 
-The system is designed to assist security analysts, not replace them.
-The analyst remains responsible for the final security decision.
-""")
+st.write(
+    "The system is designed to assist security analysts, not replace them. "
+    "The analyst remains responsible for the final security decision."
+)
+
 st.info(
     "Capstone Project | MS Information Technology | "
     "AI-Assisted SOC Intelligence Dashboard"
