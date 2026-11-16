@@ -911,39 +911,31 @@ if uploaded_alert is not None or use_demo_alert or use_demo_alert_2 or use_demo_
                     api_key=st.secrets["OPENAI_API_KEY"]
                 )
 
-                ai_prompt = f"""
-You are assisting a SOC analyst.
-
-Analyze this security alert carefully.
-
-Alert Name: {alert_name}
-Severity: {severity}
-Host: {host}
-User: {user}
-Source IP: {source_ip}
-Destination IP: {destination_ip}
-Process: {process}
-Command Line: {command_line}
-
-Rule-Based Risk Score: {risk_score}/100
-Triage Priority: {risk_level}
-
-Suspicious Indicators:
-{", ".join(indicators)}
-
-Provide the following:
-
-1. Alert Summary
-2. Why This Activity Is Suspicious
-3. Important Evidence
-4. Recommended Investigation Steps
-5. Suggested Disposition: Benign, Suspicious, or Escalate
-6. Missing Evidence or Limitations
-
-Do not claim that the host is compromised unless the available evidence proves it.
-
-Keep the answer short, clear, and professional for a SOC analyst.
-"
+ai_prompt = (
+    "You are assisting a SOC analyst.\n\n"
+    "Analyze this security alert carefully.\n\n"
+    f"Alert Name: {alert_name}\n"
+    f"Severity: {severity}\n"
+    f"Host: {host}\n"
+    f"User: {user}\n"
+    f"Source IP: {source_ip}\n"
+    f"Destination IP: {destination_ip}\n"
+    f"Process: {process}\n"
+    f"Command Line: {command_line}\n\n"
+    f"Rule-Based Risk Score: {risk_score}/100\n"
+    f"Triage Priority: {risk_level}\n\n"
+    "Suspicious Indicators:\n"
+    f"{', '.join(indicators)}\n\n"
+    "Provide the following:\n"
+    "1. Alert Summary\n"
+    "2. Why This Activity Is Suspicious\n"
+    "3. Important Evidence\n"
+    "4. Recommended Investigation Steps\n"
+    "5. Suggested Disposition: Benign, Suspicious, or Escalate\n"
+    "6. Missing Evidence or Limitations\n\n"
+    "Do not claim that the host is compromised unless the available evidence proves it.\n"
+    "Keep the answer short, clear, and professional for a SOC analyst."
+)
             with st.spinner("AI is analyzing the alert..."):
                 response = client.responses.create(
                 model="gpt-6-luna",
